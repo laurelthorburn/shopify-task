@@ -58,8 +58,9 @@ function App() {
   const handleUserInput = (e) => {
     e.preventDefault();
     //filter array based off what user picks
-    const results = products.filter(product => {return product.name.includes(clientInput)});
- 
+    const modifyInput = clientInput.toLowerCase();
+    console.log(modifyInput)
+    const results = products.filter(product => {const arrayName = product.name.toLowerCase(); return arrayName.includes(modifyInput)});
  
     console.log(results);
   };

@@ -54,7 +54,7 @@ function App() {
   ];
 
   const [clientInput, setClient] = useState("");
-  const [resultsInput, setResults] = useState("");
+  // const [resultsInput, setResults] = useState("");
 
   const handleUserInput = (e) => {
     e.preventDefault();
@@ -65,7 +65,6 @@ function App() {
   const results = products.filter((product) => {
     const arrayName = product.name.toLowerCase();
     const arrayDescription = product.description.toLowerCase();
-    // results.length === 0 ? setResults("No results found") : setResults("")
     return arrayName.includes(clientInput) || arrayDescription.includes(clientInput);
   });
   
@@ -80,20 +79,26 @@ function App() {
 
   return (
     <>
-      <form onSubmit={handleUserInput}>
+      <form onSubmit={handleUserInput} className="mainBg">
+        <div className="searchCard">
         <input
           onChange={(e) => setClient(e.target.value)}
           placeholder="Type Your Search Here"
         />
-        <button disabled={!clientInput}>Submit</button>
+        <button type="submit" disabled={!clientInput}>Submit</button>
+        </div>
+
+        <div className="searchResults">
         <div className="arrayContainer">
           <table className="arrayTable">
+            <thead>
             <tr>
               <th>Name</th>
               <th>Description</th>
               <th>Price</th>
             </tr>
-
+            </thead>
+            <tbody>
             {results.map((result) => (
               <tr key={result.id}>
                 <td>{result.name}</td>
@@ -101,8 +106,9 @@ function App() {
                 <td>{convertCurrency(`${result.price}`)}</td>
               </tr>
             ))}
+            </tbody>
           </table>
-          {resultsInput}
+          </div>
         </div>
       </form>
     </>

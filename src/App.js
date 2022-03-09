@@ -57,16 +57,24 @@ function App() {
 
   const handleUserInput = (e) => {
     e.preventDefault();
-    console.log("yay you made it here :)");
-    console.log(clientInput);
+    //filter array based off what user picks
+    const results = products.filter(product => {return product.name === "Desk lamp"});
+ 
+ 
+    console.log(results);
   };
 
   return (
     <>
       <form onSubmit={handleUserInput}>
-        <input onChange={(e) => setClient(e.target.value)}placeholder="Type Your Search Here" />
+        <input
+          onChange={(e) => setClient(e.target.value)}
+          placeholder="Type Your Search Here"
+        />
         <button disabled={!clientInput}>Submit</button>
-        {products.map((product) => `- ${product.name}`)}
+        <div className="arrayContainer">
+          {products.map((product) => `- ${product.name}`)}
+        </div>
       </form>
     </>
   );

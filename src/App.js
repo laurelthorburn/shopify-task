@@ -61,15 +61,19 @@ function App() {
     const modifyInput = clientInput.toLowerCase().trim();
     setClient(modifyInput);
   };
-
-  const results = products
-  .filter((product) => { const arrayName = product.name.toLowerCase();
-    return arrayName.includes(clientInput);
+//TODO: need to also check description...
+  const results = products.filter((product) => {
+    const arrayName = product.name.toLowerCase();
+    const arrayDescription = product.description.toLowerCase();
+    return arrayName.includes(clientInput) || arrayDescription.includes(clientInput);
   });
 
   function convertCurrency(money) {
-    const converted = (money/100).toLocaleString("en-US", {style:"currency", currency:"USD"});
-    return converted
+    const converted = (money / 100).toLocaleString("en-US", {
+      style: "currency",
+      currency: "USD",
+    });
+    return converted;
   }
 
   return (
@@ -80,25 +84,23 @@ function App() {
           placeholder="Type Your Search Here"
         />
         <button disabled={!clientInput}>Submit</button>
-          <div className="arrayContainer">
-            <table className="arrayTable">
-              <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Price</th>
+        <div className="arrayContainer">
+          <table className="arrayTable">
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Price</th>
+            </tr>
+
+            {results.map((result) => (
+              <tr key={result.id}>
+                <td>{result.name}</td>
+                <td>{result.description}</td>
+                <td>{convertCurrency(`${result.price}`)}</td>
               </tr>
-
-            {results.map((result) => 
-            <tr key={result.id}>
-              <td>{result.name}</td>
-              <td>{result.description}</td>
-              <td>{convertCurrency(`${result.price}`)}</td>
-              </tr>)}
-
-
-            </table>
-          </div>
-        
+            ))}
+          </table>
+        </div>
       </form>
     </>
   );

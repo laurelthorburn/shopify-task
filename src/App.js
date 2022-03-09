@@ -58,7 +58,7 @@ function App() {
   const handleUserInput = (e) => {
     e.preventDefault();
     //filter array based off what user picks
-    const modifyInput = clientInput.toLowerCase();
+    const modifyInput = clientInput.toLowerCase().trim();
     setClient(modifyInput);
   };
 

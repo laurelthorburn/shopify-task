@@ -54,15 +54,19 @@ function App() {
   ];
 
   const [clientInput, setClient] = useState("");
+  const [arrayInput, setArray] = useState("");
 
   const handleUserInput = (e) => {
     e.preventDefault();
     //filter array based off what user picks
     const modifyInput = clientInput.toLowerCase();
-    console.log(modifyInput)
-    const results = products.filter(product => {const arrayName = product.name.toLowerCase(); return arrayName.includes(modifyInput)});
- 
-    console.log(results);
+    console.log(modifyInput);
+    let results = products.filter((product) => {
+      const arrayName = product.name.toLowerCase();
+      return arrayName.includes(modifyInput);
+    });
+
+    setArray(results);
   };
 
   return (
@@ -73,9 +77,16 @@ function App() {
           placeholder="Type Your Search Here"
         />
         <button disabled={!clientInput}>Submit</button>
-        <div className="arrayContainer">
-          {products.map((product) => `- ${product.name}`)}
-        </div>
+        {!clientInput && (
+          <div className="arrayContainer">
+            {products.map((product) => `- ${product.name}`)}
+          </div>
+        )}
+        {clientInput > 0 && (
+          <div className="arrayContainer">
+            {arrayInput.map((result) => `- ${result.name}`)}
+          </div>
+        )}
       </form>
     </>
   );

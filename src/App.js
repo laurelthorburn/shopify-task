@@ -58,7 +58,7 @@ function App() {
   const handleUserInput = (e) => {
     e.preventDefault();
     //filter array based off what user picks
-    const results = products.filter(product => {return product.name === "Desk lamp"});
+    const results = products.filter(product => {return product.name.includes(clientInput)});
  
  
     console.log(results);

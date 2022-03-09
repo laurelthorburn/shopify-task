@@ -65,7 +65,7 @@ function App() {
     <>
       <form onSubmit={handleUserInput}>
         <input onChange={(e) => setClient(e.target.value)}placeholder="Type Your Search Here" />
-        <button>Submit</button>
+        <button disabled={!clientInput}>Submit</button>
         {products.map((product) => `- ${product.name}`)}
       </form>
     </>

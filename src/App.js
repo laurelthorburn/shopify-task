@@ -68,6 +68,11 @@ function App() {
     return arrayName.includes(clientInput);
   });
 
+  function convertCurrency(money) {
+    const converted = (money/100).toLocaleString("en-US", {style:"currency", currency:"USD"});
+    return converted
+  }
+
   return (
     <>
       <form onSubmit={handleUserInput}>
@@ -76,12 +81,6 @@ function App() {
           placeholder="Type Your Search Here"
         />
         <button disabled={!clientInput}>Submit</button>
-        {/* {!clientInput && (
-          <div className="arrayContainer">
-            {products.map((product) => `- ${product.name}`)}
-          </div>
-        )} */}
-        {/* {clientInput > 0 && ( */}
           <div className="arrayContainer">
             <table className="arrayTable">
               <tr>
@@ -91,10 +90,10 @@ function App() {
               </tr>
 
             {results.map((result) => 
-            <tr>
-              <td key={result.id}>{result.name}</td>
-              <td key={result.id}>{result.description}</td>
-              <td key={result.id}>{result.price}</td>
+            <tr key={result.id}>
+              <td>{result.name}</td>
+              <td>{result.description}</td>
+              <td>convertCurrency({result.price})</td>
               </tr>)}
 
 

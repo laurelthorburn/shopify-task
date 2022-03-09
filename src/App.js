@@ -54,7 +54,6 @@ function App() {
   ];
 
   const [clientInput, setClient] = useState("");
-  // const [arrayInput, setArray] = useState(products);
 
   const handleUserInput = (e) => {
     e.preventDefault();
@@ -93,7 +92,7 @@ function App() {
             <tr key={result.id}>
               <td>{result.name}</td>
               <td>{result.description}</td>
-              <td>convertCurrency({result.price})</td>
+              <td>{convertCurrency(`${result.price}`)}</td>
               </tr>)}
 
 

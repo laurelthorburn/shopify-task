@@ -54,6 +54,7 @@ function App() {
   ];
 
   const [clientInput, setClient] = useState("");
+  const [resultsInput, setResults] = useState("");
 
   const handleUserInput = (e) => {
     e.preventDefault();
@@ -61,12 +62,13 @@ function App() {
     const modifyInput = clientInput.toLowerCase().trim();
     setClient(modifyInput);
   };
-//TODO: need to also check description...
   const results = products.filter((product) => {
     const arrayName = product.name.toLowerCase();
     const arrayDescription = product.description.toLowerCase();
+    // results.length === 0 ? setResults("No results found") : setResults("")
     return arrayName.includes(clientInput) || arrayDescription.includes(clientInput);
   });
+  
 
   function convertCurrency(money) {
     const converted = (money / 100).toLocaleString("en-US", {
@@ -100,6 +102,7 @@ function App() {
               </tr>
             ))}
           </table>
+          {resultsInput}
         </div>
       </form>
     </>

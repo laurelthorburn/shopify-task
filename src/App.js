@@ -83,8 +83,22 @@ function App() {
         )} */}
         {/* {clientInput > 0 && ( */}
           <div className="arrayContainer">
-            {results.map((result) => ` ${result.name}`)}
+            <table className="arrayTable">
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+              </tr>
 
+            {results.map((result) => 
+            <tr>
+              <td key={result.id}>{result.name}</td>
+              <td key={result.id}>{result.description}</td>
+              <td key={result.id}>{result.price}</td>
+              </tr>)}
+
+
+            </table>
           </div>
         
       </form>

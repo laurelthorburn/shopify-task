@@ -87,7 +87,6 @@ function App() {
         />
         <button type="submit" disabled={!clientInput}>Submit</button>
         </div>
-
         <div className="searchResults">
         <div className="arrayContainer">
           <table className="arrayTable">
@@ -116,3 +115,4 @@ function App() {
 }
 
 export default App;
+

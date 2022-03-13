@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import SearchResults from "./SearchResults";
 
@@ -56,6 +56,11 @@ function App() {
 
   const [clientInput, setClient] = useState("");
 
+  useEffect(() => {
+    console.log('USE EFFECT RUN')
+    console.log(clientInput)
+  }, [clientInput])
+
   const handleUserInput = (e) => {
     e.preventDefault();
     //filter array based off what user picks
@@ -69,18 +74,9 @@ function App() {
   });
   console.log(results)
 
-
-  function convertCurrency(money) {
-    const converted = (money / 100).toLocaleString("en-US", {
-      style: "currency",
-      currency: "USD",
-    });
-    return converted;
-  }
-
   return (
     <>
-      <form onSubmit={() => {handleUserInput()}} className="mainBg">
+      <form onSubmit={handleUserInput} className="mainBg">
         <div className="searchCard">
         <input
           onChange={(e) => setClient(e.target.value)}

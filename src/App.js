@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./App.css";
+import SearchResults from "./SearchResults";
 
 function App() {
-  const products = [
+  const [products, setProducts] = useState([
     {
       id: 198355,
       name: "Fancy pen",
@@ -51,10 +52,9 @@ function App() {
       description: "Because who wants a dark office?",
       price: 6000,
     },
-  ];
+  ]);
 
   const [clientInput, setClient] = useState("");
-  // const [resultsInput, setResults] = useState("");
 
   const handleUserInput = (e) => {
     e.preventDefault();
@@ -67,7 +67,8 @@ function App() {
     const arrayDescription = product.description.toLowerCase();
     return arrayName.includes(clientInput) || arrayDescription.includes(clientInput);
   });
-  
+  console.log(results)
+
 
   function convertCurrency(money) {
     const converted = (money / 100).toLocaleString("en-US", {
@@ -79,7 +80,7 @@ function App() {
 
   return (
     <>
-      <form onSubmit={handleUserInput} className="mainBg">
+      <form onSubmit={() => {handleUserInput()}} className="mainBg">
         <div className="searchCard">
         <input
           onChange={(e) => setClient(e.target.value)}
@@ -87,28 +88,7 @@ function App() {
         />
         <button type="submit" disabled={!clientInput}>Submit</button>
         </div>
-        <div className="searchResults">
-        <div className="arrayContainer">
-          <table className="arrayTable">
-            <thead>
-            <tr>
-              <th>Name</th>
-              <th>Description</th>
-              <th>Price</th>
-            </tr>
-            </thead>
-            <tbody>
-            {results.map((result) => (
-              <tr key={result.id}>
-                <td>{result.name}</td>
-                <td>{result.description}</td>
-                <td>{convertCurrency(`${result.price}`)}</td>
-              </tr>
-            ))}
-            </tbody>
-          </table>
-          </div>
-        </div>
+        <SearchResults results={results} />
       </form>
     </>
   );

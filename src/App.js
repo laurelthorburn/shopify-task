@@ -66,13 +66,16 @@ function App() {
     //filter array based off what user picks
     const modifyInput = clientInput.toLowerCase().trim();
     setClient(modifyInput);
-  };
+ 
   const results = products.filter((product) => {
     const arrayName = product.name.toLowerCase();
     const arrayDescription = product.description.toLowerCase();
-    return arrayName.includes(clientInput) || arrayDescription.includes(clientInput);
+    return arrayName.includes(modifyInput) || arrayDescription.includes(modifyInput);
   });
-  console.log(results)
+
+  setProducts(results)
+};
+  // console.log(results)
 
   return (
     <>
@@ -81,10 +84,12 @@ function App() {
         <input
           onChange={(e) => setClient(e.target.value)}
           placeholder="Type Your Search Here"
+          value={clientInput}
+          required
         />
-        <button type="submit" disabled={!clientInput}>Submit</button>
+        <button type="submit">Submit</button>
         </div>
-        <SearchResults results={results} />
+        <SearchResults results={products} />
       </form>
     </>
   );

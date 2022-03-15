@@ -55,6 +55,7 @@ function App() {
   ]);
 
   const [clientInput, setClient] = useState("");
+  const [error, setError] = useState("");
 
   useEffect(() => {
     console.log('USE EFFECT RUN')
@@ -73,7 +74,7 @@ function App() {
     return arrayName.includes(modifyInput) || arrayDescription.includes(modifyInput);
   });
 
-  setProducts(results)
+  results.length > 0 ? setProducts(results) : setError("No product found")
 };
   // console.log(results)
 
@@ -90,6 +91,7 @@ function App() {
         <button type="submit">Submit</button>
         </div>
         <SearchResults results={products} />
+        <p>{error}</p>
       </form>
     </>
   );

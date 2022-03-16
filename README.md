@@ -82,16 +82,15 @@ No tests at this time
 
 Laurel Thorburn
 
-  
   <a name="picsection"></a>
   ## Screenshots
-  ![Screenshot of Welcome Page Transitioning to Search Page](./media/Login.gif)
+  ![Screenshot of Welcome Page Transitioning to Search Page](./screenshot1.png)
 
 
   <a name="linksection"></a>
   ## Links
 
-  Deployed Github Page: https://true-swole-mates.herokuapp.com/
+  Deployed Github Page: https://laurelthorburn.github.io/shopify-task/
   
   <a name="creditsection"></a>
 ## Resources/Credit

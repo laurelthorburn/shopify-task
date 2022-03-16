@@ -97,6 +97,7 @@ function App() {
     // setClient(" ");
     setError("");
     setProducts(productsArray);
+    setClient("");
 
   }
 
@@ -116,7 +117,7 @@ function App() {
         <p>{error}</p>
       </form>
 
-      {/* <button onSubmit={handleRefresh}>Refresh</button> */}
+      <button onClick={handleRefresh}>Refresh</button>
 
     </>
   );

@@ -116,7 +116,7 @@ function App() {
         <p>{error}</p>
       </form>
 
-      <button onSubmit={handleRefresh}>Refresh</button>
+      {/* <button onSubmit={handleRefresh}>Refresh</button> */}
 
     </>
   );

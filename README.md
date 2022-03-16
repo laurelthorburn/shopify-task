@@ -3,18 +3,15 @@
 <a name="descsection"></a>
 ## Description
 
-Welcome to my playground.
+Welcome to my playground. The purpose of this project was to utilize React to complete the following tasks:
 
-The interface will show the product’s name, description and price. Price is formatted as currency. (DONE)
-The column widths do not need to equal in width. Take the approach you feel is best for the layout. (DONE)
-Search results return matches and partial matches found in the name and description field. Results are case insensitive and ignore leading / trailing spaces. (DONE)
-Interactions
-The user can navigate and submit the search form using a keyboard or a mouse. (DONE)
-When there are no search results, a message saying “No results found” is shown instead of the product grid. (DONE)
-Prevent searches when there is no value in the search field. (DONE)
-Data
-Product information is coming from an API that returns an array of objects.  (DONE)
-Price is expressed in cents. E.g. 1000 = $10.00 (DONE)
+* The interface will show the product’s name, description and price. Price is formatted as currency.
+* Search results return matches and partial matches found in the name and description field. Results are case insensitive and ignore leading / trailing spaces.
+* The user can navigate and submit the search form using a keyboard or a mouse.
+* When there are no search results, a message saying “No results found” is shown instead of the product grid.
+* Prevent searches when there is no value in the search field. 
+* Price is expressed in cents. E.g. 1000 = $10.00 
+* Bonus: Added refresh button to allow user to render the original array of items for future searches
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 

@@ -91,11 +91,13 @@ function App() {
   };
   // console.log(results)
 
-  const handleRefresh = () => {
-    // setError("");
-    // setProducts(productsArray);
-    // window.location.reload();
-    console.log("yay welcome friend")
+  const handleRefresh = (e) => {
+    e.preventDefault();
+    console.log("Welcome to refresh")
+    // setClient(" ");
+    setError("");
+    setProducts(productsArray);
+
   }
 
   return (
@@ -109,11 +111,13 @@ function App() {
             required
           />
           <button type="submit">Submit</button>
-          <button type="submit" onSubmit={handleRefresh}>Refresh</button>
         </div>
         {error !== "No product found" && <SearchResults results={products} />}
         <p>{error}</p>
       </form>
+
+      <button onSubmit={handleRefresh}>Refresh</button>
+
     </>
   );
 }

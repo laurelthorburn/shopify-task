@@ -112,13 +112,12 @@ function App() {
             required
           />
           <button type="submit">Submit</button>
+          <button onClick={handleRefresh}>Refresh</button>
+
         </div>
         {error !== "No product found" && <SearchResults results={products} />}
         <p>{error}</p>
       </form>
-
-      <button onClick={handleRefresh}>Refresh</button>
-
     </>
   );
 }

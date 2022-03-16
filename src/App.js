@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import SearchResults from "./SearchResults";
 
+// TODO: edge case, when user !error and gets results, need to allow them to search again from the original array
+//TODO: style
+
 function App() {
   const productsArray = [
     {

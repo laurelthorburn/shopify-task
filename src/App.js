@@ -3,7 +3,7 @@ import "./App.css";
 import SearchResults from "./SearchResults";
 
 function App() {
-  const [products, setProducts] = useState([
+  const productsArray = [
     {
       id: 198355,
       name: "Fancy pen",
@@ -52,43 +52,53 @@ function App() {
       description: "Because who wants a dark office?",
       price: 6000,
     },
-  ]);
+  ];
+
+  const [products, setProducts] = useState(productsArray);
 
   const [clientInput, setClient] = useState("");
   const [error, setError] = useState("");
 
   useEffect(() => {
-    console.log('USE EFFECT RUN')
-    console.log(clientInput)
-  }, [clientInput])
+    console.log("USE EFFECT RUN");
+    console.log(clientInput);
+  }, [clientInput]);
 
   const handleUserInput = (e) => {
     e.preventDefault();
     //filter array based off what user picks
     const modifyInput = clientInput.toLowerCase().trim();
     setClient(modifyInput);
- 
-  const results = products.filter((product) => {
-    const arrayName = product.name.toLowerCase();
-    const arrayDescription = product.description.toLowerCase();
-    return arrayName.includes(modifyInput) || arrayDescription.includes(modifyInput);
-  });
 
-  results.length > 0 ? setProducts(results) : setError("No product found")
-};
+    const results = products.filter((product) => {
+      const arrayName = product.name.toLowerCase();
+      const arrayDescription = product.description.toLowerCase();
+      return (
+        arrayName.includes(modifyInput) ||
+        arrayDescription.includes(modifyInput)
+      );
+    });
+
+    if (results.length > 0) {
+      setProducts(results);
+    } else {
+      setProducts(productsArray);
+      setError("No product found");
+    }
+  };
   // console.log(results)
 
   return (
     <>
       <form onSubmit={handleUserInput} className="mainBg">
         <div className="searchCard">
-        <input
-          onChange={(e) => setClient(e.target.value)}
-          placeholder="Type Your Search Here"
-          value={clientInput}
-          required
-        />
-        <button type="submit">Submit</button>
+          <input
+            onChange={(e) => setClient(e.target.value)}
+            placeholder="Type Your Search Here"
+            value={clientInput}
+            required
+          />
+          <button type="submit">Submit</button>
         </div>
         <SearchResults results={products} />
         <p>{error}</p>
@@ -98,4 +108,3 @@ function App() {
 }
 
 export default App;
-

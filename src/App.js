@@ -61,10 +61,10 @@ function App() {
   const [clientInput, setClient] = useState("");
   const [error, setError] = useState("");
 
-  useEffect(() => {
-    console.log("USE EFFECT RUN");
-    console.log(clientInput);
-  }, [clientInput]);
+  // useEffect(() => {
+  //   console.log("USE EFFECT RUN");
+  //   console.log(clientInput);
+  // }, [clientInput]);
 
   const handleUserInput = (e) => {
     e.preventDefault();
@@ -93,7 +93,6 @@ function App() {
 
   const handleRefresh = (e) => {
     e.preventDefault();
-    console.log("Welcome to refresh")
     // setClient(" ");
     setError("");
     setProducts(productsArray);

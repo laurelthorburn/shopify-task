@@ -69,7 +69,7 @@ function App() {
 
   const handleUserInput = (e) => {
     e.preventDefault();
-
+    setError("");
     //filter array based off what user picks
     const modifyInput = clientInput.toLowerCase().trim();
     setClient(modifyInput);
@@ -104,7 +104,7 @@ function App() {
           />
           <button type="submit">Submit</button>
         </div>
-        <SearchResults results={products} />
+        {error !== "No product found" && <SearchResults results={products} />}
         <p>{error}</p>
       </form>
     </>

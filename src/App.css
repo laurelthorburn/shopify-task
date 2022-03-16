@@ -1,5 +1,5 @@
 .mainBg {
-  background-color: aqua;
+  background-color: whitesmoke;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -8,20 +8,28 @@
   align-items: center;
 }
 
-.searchCard {
-  background-color: palegoldenrod;
+input {
+  height: 35px;
 }
 
+button {
+  height: 40px;
+  margin-left: 5px;
+}
+
+
 .searchResults{
-  background-color: pink;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+  padding: 2px;
 }
 
 thead {
   background-color: lightblue;
-  border: black 1px solid;
 }
 
 tbody{
-  background-color: antiquewhite;
-  border: black 1px solid;
+  background-color: whitesmoke;
 }

@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import SearchResults from "./SearchResults";
 
-// TODO: edge case, when user !error and gets results, need to allow them to search again from the original array
-//TODO: style
+// TODO: remove required and let user refresh/reset useStates page
 
 function App() {
   const productsArray = [
@@ -92,6 +91,13 @@ function App() {
   };
   // console.log(results)
 
+  const handleRefresh = () => {
+    // setError("");
+    // setProducts(productsArray);
+    // window.location.reload();
+    console.log("yay welcome friend")
+  }
+
   return (
     <>
       <form onSubmit={handleUserInput} className="mainBg">
@@ -103,6 +109,7 @@ function App() {
             required
           />
           <button type="submit">Submit</button>
+          <button type="submit" onSubmit={handleRefresh}>Refresh</button>
         </div>
         {error !== "No product found" && <SearchResults results={products} />}
         <p>{error}</p>
